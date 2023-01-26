@@ -53,6 +53,7 @@ public class Manche {
     }
     
     private void afficheJeu(List<String> jeu){
+        System.out.println("Decodeur : " + decodeur);
         for (int i=0 ; i<12 ; i++){
             if (i<jeu.size()){
                 System.out.println(jeu.get(i));
