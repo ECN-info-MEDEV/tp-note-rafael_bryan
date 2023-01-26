@@ -21,6 +21,13 @@ public class Manche {
     private List<String> jeu;
     private static int TOURMAX = 12;
     
+    /**
+     * Constructor for Manche with the name of the 2 player
+     * First name is the codeur
+     * Second name is the decodeur
+     * @param codeur
+     * @param decodeur
+     */
     public Manche(String codeur, String decodeur){
         this.codeur = codeur;
         this.decodeur = decodeur;
@@ -28,6 +35,10 @@ public class Manche {
         this.jeu = new ArrayList<>();
     }
     
+    /**
+     * Beginning of a round, let the codeur choose a code
+     * @param scan
+     */
     public void init(Scanner scan){
         boolean valide = false;
         while (!valide){
@@ -52,12 +63,19 @@ public class Manche {
         }
     }
     
+    /**
+     * Round playing
+     * Maximum of 12 guesses
+     * Show playboard before and after each guess
+     * @return
+     */
     public int Jeu(){
         Scanner scan = new Scanner(System.in);
         init(scan);
         int tour = 0;
         boolean finJeu = false;
         String str = "";
+        afficheJeu(jeu);
         while(tour<TOURMAX && !finJeu){
             Ligne ligne = new Ligne();
             int[] resultat;
@@ -76,12 +94,14 @@ public class Manche {
             affiche = str + "  " + "Bien placé : " + resultat[0] + " ; " + "Bonne couleur : " + resultat[1];
             this.jeu.add(affiche);
             
+            //affichage du jeu
+            afficheJeu(jeu);
+            
             // vérification de fin de jeu
             if (resultat[0] == 4){
                 finJeu = true;
                 return tour;
             }
-            
             tour++;
             
         }
