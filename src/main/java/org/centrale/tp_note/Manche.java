@@ -4,6 +4,9 @@
  */
 package org.centrale.tp_note;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author bryan & rafael
@@ -13,5 +16,13 @@ public class Manche {
     private String codeur;
     private String decodeur;
     private Ligne code;
-    private Ligne[] jeu;
+    private List<Ligne> jeu;
+    
+    public Manche(String codeur, String decodeur){
+        this.codeur = codeur;
+        this.decodeur = decodeur;
+        this.code = new Ligne();
+        this.jeu = new ArrayList<>();
+    }
+    
 }
