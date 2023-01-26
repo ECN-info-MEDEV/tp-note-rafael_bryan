@@ -68,15 +68,15 @@ public class Ligne {
      * @return An int array with two elements, the first element represents the number of elements that are in the same position and the second element represents the number of elements that are in the same value but not the same position
      */
     public static int[] compareListsAndCount(Ligne list1, Ligne list2) {
-        if (list1.getLIGNE_JEU().size() != list2.getLIGNE_JEU().size()) {
+        if (list1.getligneJeu().size() != list2.getligneJeu().size()) {
             return new int[] {0,0};
         }
         int samePosition = 0;
         int sameValue = 0;
-        for (int i = 0; i < list1.getLIGNE_JEU().size(); i++) {
-            if (list1.getLIGNE_JEU().get(i).equals(list2.getLIGNE_JEU().get(i))) {
+        for (int i = 0; i < list1.getligneJeu().size(); i++) {
+            if (list1.getligneJeu().get(i).equals(list2.getligneJeu().get(i))) {
                 samePosition++;
-            } else if (list2.getLIGNE_JEU().contains(list1.getLIGNE_JEU().get(i))) {
+            } else if (list2.getligneJeu().contains(list1.getligneJeu().get(i))) {
                 sameValue++;
             }
         }
@@ -89,7 +89,7 @@ public class Ligne {
      * This method returns the line of the game.
      * @return line of the game.
      */
-    public List<String> getLIGNE_JEU() {
+    public List<String> getligneJeu() {
         return ligneJeu;
     }
 
