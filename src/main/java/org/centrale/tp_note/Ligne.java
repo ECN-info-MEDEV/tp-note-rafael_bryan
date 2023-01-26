@@ -14,15 +14,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Ligne {private List<String> LIGNE_JEU;
-    private static final List<String> validElements = Arrays.asList("Y", "N", "R", "G", "W", "B");
+public class Ligne {
+
+    private List<String> ligneJeu;
+    private static final List<String> VALID_ELEMENTS = Arrays.asList("Y", "N", "R", "G", "W", "B");
 
 
     /**
      * This constructor creates a line of the game with four spaces
      */
     private void ligneJeu(){
-        List<String> ligne=new ArrayList<String>(List.of(new String[]{" ", " ", " ", " "}));
+        this.ligneJeu = new ArrayList<String>(List.of(new String[]{" ", " ", " ", " "}));
     }
 
     /**
@@ -31,7 +33,7 @@ public class Ligne {private List<String> LIGNE_JEU;
      */
     private void ligneJeu(List<String> list){
         if (verifLigneJeu(list)) {
-            this.LIGNE_JEU = list;
+            this.ligneJeu = list;
         } else {
             System.out.println("row not created");
             verifLigneJeu(list);
@@ -50,7 +52,7 @@ public class Ligne {private List<String> LIGNE_JEU;
             return false;
         }
         for (String element : list) {
-            if (!(validElements.contains(element))) {
+            if (!(VALID_ELEMENTS.contains(element))) {
                 System.out.println("Error: List elements must be B, G, N, R, W, Y.");
                 return false;
             }
@@ -59,28 +61,44 @@ public class Ligne {private List<String> LIGNE_JEU;
         return true;
     }
 
+    /**
+     * This method compares two lists and verifies if the elements are the same and in also verifies if the position is the same
+     * @param list1 The first list to be compared
+     * @param list2 The second list to be compared
+     * @return An int array with two elements, the first element represents the number of elements that are in the same position and the second element represents the number of elements that are in the same value but not the same position
+     */
+    public static int[] compareListsAndCount(Ligne list1, Ligne list2) {
+        if (list1.getLIGNE_JEU().size() != list2.getLIGNE_JEU().size()) {
+            return new int[] {0,0};
+        }
+        int samePosition = 0;
+        int sameValue = 0;
+        for (int i = 0; i < list1.getLIGNE_JEU().size(); i++) {
+            if (list1.getLIGNE_JEU().get(i).equals(list2.getLIGNE_JEU().get(i))) {
+                samePosition++;
+            } else if (list2.getLIGNE_JEU().contains(list1.getLIGNE_JEU().get(i))) {
+                sameValue++;
+            }
+        }
+        return new int[] {samePosition, sameValue};
+    }
+
+
 
     /**
      * This method returns the line of the game.
      * @return line of the game.
      */
     public List<String> getLIGNE_JEU() {
-        return LIGNE_JEU;
+        return ligneJeu;
     }
 
-    /**
-     * This method sets the line of the game.
-     * @param LIGNE_JEU the line of the game to set
-     */
-    public void setLIGNE_JEU(List<String> LIGNE_JEU) {
-        this.LIGNE_JEU = LIGNE_JEU;
-    }
 
     /**
      * This method returns the valid elements that can be used in the line of the game.
      * @return valid elements that can be used in the line of the game.
      */
-    public List<String> getValidElements() {
-        return validElements;
+    public List<String> getVALID_ELEMENTS() {
+        return VALID_ELEMENTS;
     }
 }
