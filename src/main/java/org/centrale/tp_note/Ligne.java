@@ -23,7 +23,7 @@ public class Ligne {
     /**
      * This constructor creates a line of the game with four spaces
      */
-    private void ligneJeu(){
+    public Ligne(){
         this.ligneJeu = new ArrayList<String>(List.of(new String[]{" ", " ", " ", " "}));
     }
 
@@ -31,7 +31,7 @@ public class Ligne {
      * This constructor takes a list of strings as an argument and verifies that it contains exactly four elements and that they are valid elements.
      * @param list The list of elements to be verified and set as the line of the game
      */
-    private void ligneJeu(List<String> list){
+    public Ligne(List<String> list){
         if (verifLigneJeu(list)) {
             this.ligneJeu = list;
         } else {
@@ -64,20 +64,22 @@ public class Ligne {
     /**
      * This method compares two lists and verifies if the elements are the same and in also verifies if the position is the same
      * @param list1 The first list to be compared
-     * @param list2 The second list to be compared
      * @return An int array with two elements, the first element represents the number of elements that are in the same position and the second element represents the number of elements that are in the same value but not the same position
      */
-    public static int[] compareListsAndCount(Ligne list1, Ligne list2) {
-        if (list1.getligneJeu().size() != list2.getligneJeu().size()) {
+    public int[] compareListsAndCount(Ligne list1) {
+        if (list1.getligneJeu().size() != this.ligneJeu.size()) {
             return new int[] {0,0};
         }
         int samePosition = 0;
         int sameValue = 0;
-        for (int i = 0; i < list1.getligneJeu().size(); i++) {
-            if (list1.getligneJeu().get(i).equals(list2.getligneJeu().get(i))) {
+        for (int i = 0; i < 4; i++) {
+            if (list1.getligneJeu().get(i).equals(this.getligneJeu().get(i))) {
                 samePosition++;
-            } else if (list2.getligneJeu().contains(list1.getligneJeu().get(i))) {
+            } else if (this.getligneJeu().contains(list1.getligneJeu().get(i))) {
                 sameValue++;
+            } else {
+                System.out.println(list1.getligneJeu().get(i) );
+                System.out.println(this.getligneJeu().get(i));
             }
         }
         return new int[] {samePosition, sameValue};
