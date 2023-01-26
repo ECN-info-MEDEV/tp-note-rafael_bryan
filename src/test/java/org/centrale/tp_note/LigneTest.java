@@ -45,7 +45,7 @@ public class LigneTest {
         List<String> validLine = new ArrayList<>(Arrays.asList("Y", "N", "R", "G"));
         Ligne ligne = new Ligne();
         ligne.verifLigneJeu(validLine);
-        assertEquals(validLine, ligne.getligneJeu());
+        assertEquals(validLine, ligne.getLigneJeu());
     }
 
     @Test
