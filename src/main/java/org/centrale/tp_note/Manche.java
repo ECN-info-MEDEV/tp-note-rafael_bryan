@@ -46,13 +46,14 @@ public class Manche {
         init(scan);
         int tour = 0;
         boolean finJeu = false;
+        String str = "";
         while(tour<TOURMAX && !finJeu){
             Ligne ligne = new Ligne();
             int[] resultat;
             boolean valide = false;
             while (!valide){
                 System.out.println("Essai " + (tour+1) );
-                String str = scan.nextLine();
+                str = scan.nextLine();
                 List<String> liste= new ArrayList<String>(Arrays.asList(str.split("")));
                 valide = ligne.verifLigneJeu(liste);
                 if (valide){
@@ -60,10 +61,11 @@ public class Manche {
                 }
             }
             resultat = this.code.compareListsAndCount(ligne);
-            this.jeu.add(ligne)
+            this.jeu.add(str);
             
             
         }
+        return 1;
     } 
     
 }
