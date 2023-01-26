@@ -41,6 +41,17 @@ public class Manche {
         }
     }
     
+    private void afficheJeu(List<String> jeu){
+        for (int i=0 ; i<12 ; i++){
+            if (i<jeu.size()){
+                System.out.println(jeu.get(i));
+            }
+            else {
+                System.out.println("----");
+            }
+        }
+    }
+    
     public int Jeu(){
         Scanner scan = new Scanner(System.in);
         init(scan);
@@ -61,11 +72,20 @@ public class Manche {
                 }
             }
             resultat = this.code.compareListsAndCount(ligne);
-            this.jeu.add(str);
+            String affiche;
+            affiche = str + "  " + "Bien placé : " + resultat[0] + " ; " + "Bonne couleur : " + resultat[1];
+            this.jeu.add(affiche);
             
+            // vérification de fin de jeu
+            if (resultat[0] == 4){
+                finJeu = true;
+                return tour;
+            }
+            
+            tour++;
             
         }
-        return 1;
+        return 12;
     } 
     
 }
