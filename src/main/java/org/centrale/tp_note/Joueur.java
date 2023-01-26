@@ -6,7 +6,7 @@ package org.centrale.tp_note;
 
 /**
  *
- * @author bryan
+ * @author bryan & rafael
  */
 public class Joueur {
     
