@@ -37,7 +37,7 @@ public class Manche {
     
     /**
      * Beginning of a round, let the codeur choose a code
-     * @param scan
+     * @param scan scan users entries
      */
     public void init(Scanner scan){
         boolean valide = false;
@@ -68,7 +68,7 @@ public class Manche {
      * Round playing
      * Maximum of 12 guesses
      * Show playboard before and after each guess
-     * @return
+     * @return le score du jeu
      */
     public int Jeu(){
         Scanner scan = new Scanner(System.in);

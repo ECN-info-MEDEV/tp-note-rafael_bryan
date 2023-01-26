@@ -10,8 +10,6 @@ import java.util.List;
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -52,6 +50,6 @@ public class LigneTest {
     public void testGetVALID_ELEMENTS() {
         Ligne ligne = new Ligne();
         List<String> expected = Arrays.asList("Y", "N", "R", "G", "W", "B");
-        assertEquals(expected, ligne.getVALID_ELEMENTS());
+        assertEquals(expected, ligne.getVALIDELEMENTS());
     }
 }

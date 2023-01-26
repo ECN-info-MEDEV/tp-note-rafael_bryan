@@ -17,14 +17,14 @@ import java.util.List;
 public class Ligne {
 
     private List<String> ligneJeu;
-    private static final List<String> VALID_ELEMENTS = Arrays.asList("Y", "N", "R", "G", "W", "B");
+    private static final List<String> VALIDELEMENTS = Arrays.asList("Y", "N", "R", "G", "W", "B");
 
 
     /**
      * This constructor creates a line of the game with four spaces
      */
     public Ligne(){
-        this.ligneJeu = new ArrayList<String>(List.of(new String[]{" ", " ", " ", " "}));
+        this.ligneJeu = new ArrayList<String>();
     }
 
     /**
@@ -52,7 +52,7 @@ public class Ligne {
             return false;
         }
         for (String element : list) {
-            if (!(VALID_ELEMENTS.contains(element))) {
+            if (!(VALIDELEMENTS.contains(element))) {
                 System.out.println("Error: List elements must be B, G, N, R, W, Y.");
                 return false;
             }
@@ -100,7 +100,7 @@ public class Ligne {
      * This method returns the valid elements that can be used in the line of the game.
      * @return valid elements that can be used in the line of the game.
      */
-    public List<String> getVALID_ELEMENTS() {
-        return VALID_ELEMENTS;
+    public List<String> getVALIDELEMENTS() {
+        return VALIDELEMENTS;
     }
 }
