@@ -35,7 +35,7 @@ public class LigneTest {
         Ligne ligne = new Ligne(new ArrayList<>(Arrays.asList("Y", "N", "G", "R")));
         List<String> validLine1 = new ArrayList<>(Arrays.asList("Y", "N", "R", "G"));
         Ligne ligne1 = new Ligne(validLine1);
-        int[] expected = {0, 3};
+        int[] expected = {2, 2};
         int[] actual = ligne.compareListsAndCount(ligne1);
         assertArrayEquals(expected, actual);
     }
@@ -43,7 +43,7 @@ public class LigneTest {
     @Test
     public void testGetLIGNE_JEU() {
         List<String> validLine = new ArrayList<>(Arrays.asList("Y", "N", "R", "G"));
-        Ligne ligne = new Ligne();
+        Ligne ligne = new Ligne(validLine);
         ligne.verifLigneJeu(validLine);
         assertEquals(validLine, ligne.getLigneJeu());
     }

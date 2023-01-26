@@ -57,7 +57,6 @@ public class Ligne {
                 return false;
             }
         }
-        System.out.println("List is valid.");
         return true;
     }
 
@@ -77,9 +76,6 @@ public class Ligne {
                 samePosition++;
             } else if (this.getLigneJeu().contains(list1.getLigneJeu().get(i))) {
                 sameValue++;
-            } else {
-                System.out.println(list1.getLigneJeu().get(i) );
-                System.out.println(this.getLigneJeu().get(i));
             }
         }
         return new int[] {samePosition, sameValue};
