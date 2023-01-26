@@ -91,8 +91,12 @@ public class Ligne {
      * This method returns the line of the game.
      * @return line of the game.
      */
-    public List<String> getligneJeu() {
+    public List<String> getLigneJeu() {
         return ligneJeu;
+    }
+
+    public void setLigneJeu(List<String> ligneJeu) {
+        this.ligneJeu = ligneJeu;
     }
 
 
